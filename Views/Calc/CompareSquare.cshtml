@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Compare Square Root";
+}
+
+<div>
+    <h1>Compare Square Root</h1>
+</div>
+@{
+    if(ViewBag.HighNum == null) {
+        <div>Working</div>
+    }else if(ViewBag.HighNum > 1) {
+        <div>
+            The number @ViewBag.HighNum with Square root @ViewBag.HighRoot has a higher square root than the number @ViewBag.LowNum with square root @ViewBag.LowRoot
+        </div>
+    } else if(ViewBag.HighNum < 1) {
+        <div>
+            The numbers you typed in have equal square roots, enter another values
+        </div>
+    } 
+}
+<div>
+    <form asp-controller="Calc" asp-action="CompareSquare" method="POST">
+        <input style="font-size: 1.1rem; display: block; 
+            padding: 10px 16px; margin-top: 40px; border-radius: 5px; border: 1px solid #333333;" 
+            type="number" placeholder="First Number" name="firstname" />
+        <input type="number" style="font-size: 1.1rem; display: block; 
+            padding: 10px 16px; margin-top: 20px; border-radius: 5px; border: 1px solid #333333;" placeholder="Second Number" name="secondname" />
+        <button style="font-size: 1.1rem; display: block; 
+            padding: 10px 16px; margin-top: 20px; border-radius: 5px; background: blue; color: #fff;" 
+            type="submit">Submit</button>
+    </form>
+</div>
